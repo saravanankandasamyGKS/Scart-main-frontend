@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "./Search";
 import { useDispatch, useSelector } from "react-redux";
-import { DropdownButton, Dropdown, Image } from "react-bootstrap";
+import { Dropdown, Image } from "react-bootstrap";
 import { logout } from "../../actions/userActions";
 
 export default function Header() {
@@ -36,15 +36,11 @@ export default function Header() {
               id="dropdown-basic"
             >
               <figure className="avatar avatar-nav">
-                <Image
-                  width="50px"
-                  src={
-                    user &&
-                    user.avatar && <Image width="50px" src={user.avatar} />
-                  }
-                />
+                {user && user.avatar && (
+                  <Image width="50px" src={user.avatar} />
+                )}
               </figure>
-              <span>{user && <span>{user.name}</span>}</span>
+              <span>{user && user.name}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu>
               {user && user.role && (
