@@ -44,7 +44,7 @@ export default function Header() {
                   }
                 />
               </figure>
-              <span>{user.name}</span>
+              <span>{user && <span>{user.name}</span>}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu>
               {user.role === "admin" && (
